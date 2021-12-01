@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Results Verification Page Marco Marino </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+  <script>
+
+      function collectInfo(){
+          let userLastname = document.getElementById("lastname").value;
+          sessionStorage.setItem("lastname", userLastname);
+          
+          let userFirstname = document.getElementById("firstname").value;
+          sessionStorage.setItem("firstname", userFirstname);
+
+          let userTitle = document.getElementById("titleSelect").value;
+          sessionStorage.setItem("title", userTitle);
+
+          let userFeetHeight = document.getElementById("feetHeightSelect").value;
+          sessionStorage.setItem("feetHeight", userFeetHeight);
+
+          let userInchesHeight = document.getElementById("inchesHeightSelect").value;
+          sessionStorage.setItem("inchesHeight", userInchesHeight);
+
+          let userPhone = document.getElementById("phone").value;
+          sessionStorage.setItem("userPhone", userPhone);
+
+          let userAddress = document.getElementById("address").value;
+          sessionStorage.setItem("userAddress", userAddress);
+
+          let userZipcode = document.getElementById("zipcode").value;
+          sessionStorage.setItem("userZipcode", userZipcode);
+
+          let userEmailCheck = document.getElementById("emailcheck").checked;
+          sessionStorage.setItem("userEmailCheck", userEmailCheck);
+          console.log(sessionStorage.getItem("userEmailCheck"));
+
+          let userPhoneCheck = document.getElementById("phonecheck").checked;
+          sessionStorage.setItem("userPhoneCheck", userPhoneCheck);
+
+          let userFacebookCheck = document.getElementById("facebookcheck").checked;
+          sessionStorage.setItem("userFacebookCheck", userFacebookCheck);
+
+          let userTweeterCheck = document.getElementById("tweetercheck").checked;
+          sessionStorage.setItem("userTweeterCheck", userTweeterCheck);
+
+          let userSurfaceMailCheck = document.getElementById("surfacemailcheck").checked;
+          sessionStorage.setItem("userSurfaceMailCheck", userSurfaceMailCheck);
+
+          let userPersonalVisitCheck = document.getElementById("personalvisitcheck").checked;
+          sessionStorage.setItem("userPersonalVisitCheck", userPersonalVisitCheck);
+
+          let userBudget = document.getElementById("budget").value;
+          sessionStorage.setItem("userBudget", userBudget);
+
+          let userEmail = document.getElementById("email").value;
+          sessionStorage.setItem("userEmail", userEmail);
+        
+      }
+  </script>
+
+  <div class="g-recaptcha"
+      data-sitekey="6LcjXm0dAAAAAC6ltDoPGtnA1KWPSoL_yfhWMDrD"
+      data-callback="onSubmit"
+      data-size="invisible">
+</div>
+
+</head>
+<body style="background-color:rgb(156, 168, 168)">
+
+<div style ="background-color: rgb(126, 130, 133); color:ghostwhite" class="jumbotron bg-primary text-center">
+  <h2>CSC 642 848 Fall 2021 Individual Assignment Marco Marino</h2>
+</div>
+
+<h5 style=" color: red; text-align: center;">* indicates requried field</h5>
+
+<form action="ResultsVerificationPage.php" method="get">
+<div class="text-left container"><br>
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div  class=" col-sm-9">
+            <div class = "col-xs-3">
+                <label for="last name">Last Name*</label>
+                <input type="text" class="form-control" maxlength="40" placeholder="Doe" name="lastname" id="lastname" required>
+            </div>
+            <div class = "col-xs-3">
+                <label for="first name">First Name*</label>
+                <input type="text" class="form-control" maxlength="40" placeholder="John" name="firstname" id="firstname" required>
+            </div>
+            <div class = "form-group col-lg-2 ">
+                <label for="titleSelect">Preferred Title*</label>
+                <select type="text" class="form-control" name="titleSelect" id="titleSelect" required>
+                    <option>None</option>
+                    <option>Student</option>
+                    <option>Professor</option>
+                    <option>Staff</option>
+                    <option>Retired</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <label for="feet height">&nbsp&nbsp&nbspYour Height</label>
+            <div class="form">
+                <div class = "col-xs-2">
+                    Feet
+                    <select type="text" class="form-control" name="feetHeightSelect" id="feetHeightSelect">
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                    </select>
+                </div>
+                <div class = "col-sm-2">
+                    Inches
+                    <select type="text" class="form-control" name = "inchesHeightSelect" id="inchesHeightSelect">
+                        <option>0</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                    </select>
+                </div>
+            </div>
+            <div style="bottom: 5px;" class="col-xs-4">
+                <label  for="phone">Phone</label>
+                <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder="555-123-4567" class="form-control" maxlength="12" id="phone">
+            </div>
+        </div>
+        
+
+    </div>
+    
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+            <div  class="col-xs-6">
+                <label for="address">Address*</label>
+                <input type="text" name="address" id="address" class="form-control" maxlength="40" placeholder="123 Fake St." required>
+            </div>
+            <div class="col-xs-2">
+                <label for="zipcode">Zipcode*</label>
+                <input type="text" name="zipcode" id="zipcode" class="form-control" pattern="[0-9]{5}" placeholder="12345"  required>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div  class="col-sm-9">
+            <div style="top:40px;"class="col-xs-5">
+                <label>Check all services you require</label>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Email" name="emailcheck" id="emailcheck">
+                    <label class="form-check-label" for="emailcheck">Email</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Phone" name="phonecheck" id="phonecheck">
+                    <label class="form-check-label" for="phonecheck">Phone</label>      
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Facebook" name="facebookcheck" id="facebookcheck">
+                    <label class="form-check-label" for="facebookcheck">Facebook</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Tweeter" name="tweetercheck" id="tweetercheck">
+                    <label class="form-check-label" for="tweetercheck">Tweeter</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Surface Mail" name="surfacemailcheck" id="surfacemailcheck">
+                    <label class="form-check-label" for="surfacemailcheck">Surface Mail</label>
+                </div>
+                <div class="col-xs-6">
+                    <input type="checkbox" class="form-check-input" type="checkbox" value="Personal Visit" name="personalvisitcheck" id="personalvisitcheck">
+                    <label class="form-check-label" for="personalvisitcheck">Personal Visit</label>  
+                </div>
+            </div>
+            <div style="top:40px;"class="col-xs-3">
+                <label>Your monthly budget for services</label>
+                <select type="text" class="form-control" id="budget">
+                    <option>Less than $50</option>
+                    <option>Between $50 and $100</option>
+                    <option>Above $100</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-3"></div>
+        <div style="top:60px;" class="col-sm-9">
+            <div class = "col-xs-5">
+                <label for="email">Your Email*</label>
+                <input type="email" name="email" class="form-control"  placeholder="name@example.domain" id="email" required>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class='col-sm-3'></div>
+        <div style="top:80px;" class="col-sm-9">
+            <div class=" form-row col-xs-5">
+                <input type="checkbox" name="termscheck" class="form-check-input" onClick="grecaptcha.execute();collectInfo()" id="termscheck" value="terms" required>
+                <label class="form-check-label" for="termscheck" >I agree to the <a>Terms and Conditions</a> </label>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
+    <div  class="row">
+        <div class="col-xs-offset-5">
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <input type="submit" onclick="collectInfo()" value="Submit Information" id="submitInfo">
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
